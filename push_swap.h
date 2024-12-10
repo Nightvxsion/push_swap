@@ -28,5 +28,7 @@ void	sa(int *sa);
 void	sb(int *sb);
 void	pa(t_stack *src, t_stack *dest);
 void	pb(t_stack *src, t_stack *dest);
+void ra(t_stack *stack);
+void rb(t_stack *stack_b);
 
 #endif
