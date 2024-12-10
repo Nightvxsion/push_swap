@@ -1,33 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pb.c                                               :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marcgar2 <marcgar2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/09 22:41:22 by marcgar2          #+#    #+#             */
-/*   Updated: 2024/12/09 22:41:22 by marcgar2         ###   ########.fr       */
+/*   Created: 2024/12/10 21:58:26 by marcgar2          #+#    #+#             */
+/*   Updated: 2024/12/10 21:58:26 by marcgar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-void	pb(t_stack *src, t_stack *dest)
+#include "../lib/push_swap.h"
+void	swap(int *stack)
 {
-	int	i;
-	i = dest->size;
+	int	tmp;
 
-	while (i > 0)
+	if (stack)
 	{
-		dest->data[i] = dest->data[i - 1];
-		i--;
+		tmp = stack[0];
+		stack[1] = stack[0];
+		stack[0] = tmp;
 	}
-	dest->data[0] = src->data[0];
-	src->size++;
-	while (i < src->size - 1)
-	{
-		src->data[i] = src->data[i + 1];
-		i++;
-	}
-	src->size--;
 }

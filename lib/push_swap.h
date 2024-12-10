@@ -25,13 +25,22 @@ typedef struct s_stack
 	int	capacity; 
 }	t_stack; // Referencia en funcion
 
+void	swap(int *stack);
 void	sa(int *sa);
 void	sb(int *sb);
+void	ss(int *stack_a, int *stack_b);
 void	pa(t_stack *src, t_stack *dest);
 void	pb(t_stack *src, t_stack *dest);
-void ra(t_stack *stack);
-void rb(t_stack *stack_b);
+void	rotate(t_stack *stack);
+void	ra(t_stack *stack);
+void	rb(t_stack *stack_b);
+void	reverse_rotate(t_stack *stack);
+void	rra(t_stack *stack);
+void	rrb(t_stack *stack);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
 void	*ft_memmove(void *dest, const void *src, size_t n);
+
+int		is_int(char *str);
+void	int_error(void);
 
 #endif

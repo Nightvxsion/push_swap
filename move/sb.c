@@ -10,12 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-void	sa(int *sa)
+#include "../lib/push_swap.h"
+void	sb(int *sb)
 {
-	int	tmp;
-
-	tmp = sa[0];
-	sa[0] = sa[1];
-	sa[1] = tmp;
-	write(1, "sa\n", 3);
+	swap(sb);
+	write(1, "sb\n", 3);
 }
