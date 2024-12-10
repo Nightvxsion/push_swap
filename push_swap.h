@@ -16,6 +16,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdio.h>
+# include "libft.h"
 
 typedef struct s_stack
 {
@@ -30,5 +31,7 @@ void	pa(t_stack *src, t_stack *dest);
 void	pb(t_stack *src, t_stack *dest);
 void ra(t_stack *stack);
 void rb(t_stack *stack_b);
+void	*ft_memcpy(void *dest, const void *src, size_t n);
+void	*ft_memmove(void *dest, const void *src, size_t n);
 
 #endif
