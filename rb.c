@@ -1,5 +1,4 @@
 #include "push_swap.h"
-#include "libft.h"
 void rb(t_stack *stack_b)
 {
 	int	first_pos;
