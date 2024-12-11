@@ -20,11 +20,17 @@
 
 typedef struct s_stack
 {
-	int	*data; // Numero a pushear/swapear/rotar etc..
+	t_node	*top; // Numero a pushear/swapear/rotar etc..
 	int	size; // Tamaño de cada stack
-	int	capacity; 
 }	t_stack; // Referencia en funcion
 
+typedef struct s_node
+{
+	int				content;
+	struct s_node	*next;
+}	t_node;
+
+t_stack *create_stack(void);
 void	swap(int *stack);
 void	sa(int *sa);
 void	sb(int *sb);

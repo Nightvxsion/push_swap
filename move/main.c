@@ -33,35 +33,29 @@ int main(int argc, char **argv)
 	t_stack	stack_b;
 	int i;
 	// Verificar que todos los argumentos sean números enteros
-	i = 1;
 	if (argc < 2)
 	{
 		int_error();
 		return 1;
 	}
-	while (i < argc)
+	for (i = 1; i < argc; i++)
 	{
 		if (!is_int(argv[i]))  // Si el argumento no es un entero
 		{
 			int_error(); // Mostrar error
 			return 1; // Salir con código de error
 		}
-		i++;
 	}	
 	// Inicializar las pilas (puedes cambiar cómo inicializas las pilas según tu estructura)
 	stack_a.size = argc - 1;
 	stack_b.size = 0;
-	if (stack_a.size > 0)
+	stack_a.data = malloc(stack_a.size * sizeof(int));  
+	if (stack_a.size == 0)
 	{
-		stack_a.data = malloc(stack_a.size * sizeof(int));  // Asignar memoria para stack_a
-		if (!stack_a.data)  // Comprobar si malloc falló
-		{
-			int_error();
-			return 1;
-		}
+		int_error();
+		free_memory(&stack_a, &stack_b);
+		return 1;
 	}
-	else
-		stack_a.data = NULL; // Si no hay datos, asignar NULL
 	stack_b.data = NULL; // No necesitamos datos en stack_b al principio	
 	// Convertir los argumentos en números y llenar la pila stack_a
 	for (i = 0; i < stack_a.size; i++)
