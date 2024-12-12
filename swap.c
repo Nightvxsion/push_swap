@@ -1,6 +1,6 @@
 #include "./lib/push_swap.h"
 #include "-/lib/libft.h"
-void	swap(t_stack *src)
+void	swap_2(t_stack *src)
 {
 	t_stack *first;
 	t_stack *second;

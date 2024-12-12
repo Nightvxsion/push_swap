@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marcgar2 <marcgar2@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: marcgar2 <marcgar2@student.42madrid.org    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 22:17:17 by marcgar2          #+#    #+#             */
-/*   Updated: 2024/12/09 22:17:17 by marcgar2         ###   ########.fr       */
+/*   Updated: 2024/12/12 09:10:03 by marcgar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,13 @@ typedef struct s_node
 }	t_node;
 
 t_stack *create_stack(void);
-void	swap(int *stack);
-void	sa(int *sa);
-void	sb(int *sb);
-void	ss(int *stack_a, int *stack_b);
-void	pa(t_stack *src, t_stack *dest);
-void	pb(t_stack *src, t_stack *dest);
+void	swap_2(t_stack *src);
+void	sa(t_stack *stack_a);
+void	sb(t_stack *stack_b);
+void	ss(t_stack *stack_a, t_stack *stack_b);
+void	push(t_stack *src, t_stack *dst)
+void    pa(t_stack *src, t_stack *dst);
+void    pb(t_stack *src, t_stack *dst);
 void	rotate(t_stack *stack);
 void	ra(t_stack *stack);
 void	rb(t_stack *stack_b);
