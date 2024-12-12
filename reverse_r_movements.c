@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_movements.c                                   :+:      :+:    :+:   */
+/*   reverse_r_movements.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marcgar2 <marcgar2@student.42madrid.org    +#+  +:+       +#+        */
+/*   By: marcgar2 <marcgar2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/12 09:07:18 by marcgar2          #+#    #+#             */
-/*   Updated: 2024/12/12 09:09:33 by marcgar2         ###   ########.fr       */
+/*   Created: 2024/12/12 22:01:55 by marcgar2          #+#    #+#             */
+/*   Updated: 2024/12/12 22:01:55 by marcgar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./lib/push_swap.h"
-void	pa(t_stack *src, t_stack *dst)
+
+void	rra(t_stack *stack_a)
 {
-	push(src, dst);
-	write(1, "pa\n", 3);
+	reverse_rot(stack_a);
+	write(1, "rra\n", 4);
 }
-void	pb(t_stack *src, t_stack *dst)
+void	rrb(t_stack *stack_b)
 {
-	push(src, dst);
-	write(1, "pb\n", 3);
+	reverse_rot(stack_b);
+	write(1, "rrb\n", 4);
+}
+
+void	rrr(t_stack *stack_a, t_stack *stack_b)
+{
+	reverse_rot(stack_a);
+	reverse_rot(stack_b);
+	write(1, "rrb\n", 4);
 }

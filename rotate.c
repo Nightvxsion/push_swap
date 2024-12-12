@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marcgar2 <marcgar2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/12 22:05:44 by marcgar2          #+#    #+#             */
-/*   Updated: 2024/12/12 22:05:44 by marcgar2         ###   ########.fr       */
+/*   Created: 2024/12/12 21:16:26 by marcgar2          #+#    #+#             */
+/*   Updated: 2024/12/12 21:16:26 by marcgar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./lib/push_swap.h"
 #include "./lib/libft.h"
-void	swap_2(t_stack *src)
+
+void	rotate(t_stack *stack)
 {
-	t_node *first;
-	t_node *second;
+	t_list *save;
 
-	if (!src || !src->top || !(src->top->next)) // Si no existe ni la lista ni los 2 elementos de la lista
+	if (!stack || !stack->top || !(stack->top->next))
 		return;
-	first = src->top; // Obtencion del primer elemento de la lista
-	second = src->top->next; // Obtencion del segundo elemento de la lista
-
-	src->top = second;
-	first->next = second->next;
-	second->next = first;
+	
+	stack->top = save; // Guardar el primer nodo
+	stack->top = stack->top->next; // Actualizar la posicion de toda la lista
+	save->next = NULL; // Hacer que la lista (donde hemos guardado el nodo) sea solo 1 elemento
+	ft_lstadd_back(&(stack->top), save); // Usar lstadd_back para añadir save AL FINAL
 }
