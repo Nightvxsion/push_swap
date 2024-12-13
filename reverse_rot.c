@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   reverse_rot.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marcgar2 <marcgar2@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: marcgar2 <marcgar2@student.42madrid.org    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 22:01:37 by marcgar2          #+#    #+#             */
-/*   Updated: 2024/12/12 22:01:37 by marcgar2         ###   ########.fr       */
+/*   Updated: 2024/12/13 10:01:30 by marcgar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,5 @@ void	reverse_rot(t_stack *stack)
 	iter = iter->next;
 	save = iter->next; // Guardamos el ultimo nodo encontrado en save
 	iter->next = NULL; // Desconectamos el hueco restante y lo igualamos a NULL para que sea el último
-	ft_lstadd_front(&(stack->top), save); // Usando lstadd_front llevamos el nodo guardado al principio de la lista principal
+	ft_lstadd_front((t_list **)&(stack->top), save); // Usando lstadd_front llevamos el nodo guardado al principio de la lista principal
 }

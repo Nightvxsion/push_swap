@@ -6,7 +6,7 @@
 /*   By: marcgar2 <marcgar2@student.42madrid.org    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 22:17:17 by marcgar2          #+#    #+#             */
-/*   Updated: 2024/12/12 09:10:03 by marcgar2         ###   ########.fr       */
+/*   Updated: 2024/12/13 09:55:19 by marcgar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,18 @@
 # include <stdio.h>
 # include "libft.h"
 
+typedef struct s_node
+{
+	int				content;
+	struct s_node	*next;
+}	t_node;
+
 typedef struct s_stack
 {
 	t_node	*top; // Numero a pushear/swapear/rotar etc..
 	int	size; // Tamaño de cada stack
 }	t_stack; // Referencia en funcion
 
-typedef struct s_node
-{
-	int				content;
-	struct s_node	*next;
-}	t_node;
 
 t_stack *create_stack(void);
 void	swap_2(t_stack *src);

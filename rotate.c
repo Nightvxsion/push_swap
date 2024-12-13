@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marcgar2 <marcgar2@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: marcgar2 <marcgar2@student.42madrid.org    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 21:16:26 by marcgar2          #+#    #+#             */
-/*   Updated: 2024/12/12 21:16:26 by marcgar2         ###   ########.fr       */
+/*   Updated: 2024/12/13 10:03:09 by marcgar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 void	rotate(t_stack *stack)
 {
 	t_list *save;
+	save = NULL;
 
 	if (!stack || !stack->top || !(stack->top->next))
 		return;
@@ -23,5 +24,5 @@ void	rotate(t_stack *stack)
 	stack->top = save; // Guardar el primer nodo
 	stack->top = stack->top->next; // Actualizar la posicion de toda la lista
 	save->next = NULL; // Hacer que la lista (donde hemos guardado el nodo) sea solo 1 elemento
-	ft_lstadd_back(&(stack->top), save); // Usar lstadd_back para añadir save AL FINAL
+	ft_lstadd_back((t_list **)&(stack->top), save); // Usar lstadd_back para añadir save AL FINAL
 }

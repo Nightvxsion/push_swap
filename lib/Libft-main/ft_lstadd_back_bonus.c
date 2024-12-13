@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstadd_back_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marcgar2 <marcgar2@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: marcgar2 <marcgar2@student.42madrid.org    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 15:37:20 by marcgar2          #+#    #+#             */
-/*   Updated: 2024/10/11 15:57:30 by marcgar2         ###   ########.fr       */
+/*   Updated: 2024/12/13 09:50:17 by marcgar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "../push_swap.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+t_node	*ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*ulti;
 

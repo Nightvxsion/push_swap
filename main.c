@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marcgar2 <marcgar2@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: marcgar2 <marcgar2@student.42madrid.org    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 22:21:09 by marcgar2          #+#    #+#             */
-/*   Updated: 2024/12/12 22:21:09 by marcgar2         ###   ########.fr       */
+/*   Updated: 2024/12/13 10:00:45 by marcgar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,13 @@ int	main(void)
 	stack_a.top = NULL;
 	stack_a.size = 5;
 	for (i = 0; i < 5; i++)
-		ft_lstadd_back(&(stack_a.top), ft_lstnew(&values_a[i]));
+		ft_lstadd_back((t_list **)&(stack_a.top), ft_lstnew(&values_a[i]));
 
 	// Inicializamos stack_b
 	stack_b.top = NULL;
 	stack_b.size = 3;
 	for (i = 0; i < 3; i++)
-		ft_lstadd_back(&(stack_b.top), ft_lstnew(&values_b[i]));
+		ft_lstadd_back((t_list **)&(stack_b.top), ft_lstnew(&values_b[i]));
 
 	// Imprimimos el estado inicial
 	write(1, "Estado inicial:\n", 16);
