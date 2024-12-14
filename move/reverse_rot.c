@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./lib/push_swap.h"
-#include "./lib/libft.h"
+#include "../lib/push_swap.h"
+#include "../lib/libft.h"
 
 void	reverse_rot(t_stack *stack)
 {
@@ -20,9 +20,9 @@ void	reverse_rot(t_stack *stack)
 
 	if (!stack || !stack->top || !(stack->top->next))
 		return;
-	iter = stack->top; // Itera sobre stack (desde el principio)
+	iter = (t_list *)stack->top; // Itera sobre stack (desde el principio)
 	while (iter->next && iter->next->next) // iter.next es el siguiente nodo NULL, iter.next.next es el siguiente nodo y el siguiente ya es NULL
-	iter = iter->next;
+		iter = iter->next;
 	save = iter->next; // Guardamos el ultimo nodo encontrado en save
 	iter->next = NULL; // Desconectamos el hueco restante y lo igualamos a NULL para que sea el último
 	ft_lstadd_front((t_list **)&(stack->top), save); // Usando lstadd_front llevamos el nodo guardado al principio de la lista principal

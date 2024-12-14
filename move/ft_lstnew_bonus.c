@@ -10,14 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include "../push_swap.h"
+#include "../lib/libft.h"
+#include "../lib/push_swap.h"
 
-t_node	*ft_lstnew(void *content)
+t_list	*ft_lstnew(void *content)
 {
 	t_list	*elem;
 
-	elem = malloc(sizeof(t_list));
+	elem = (t_list *)malloc(sizeof(t_list));
 	if (!elem)
 		return (NULL);
 	elem->content = content;

@@ -10,19 +10,24 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include "../push_swap.h"
+#include "../lib/libft.h"
+#include "../lib/push_swap.h"
 
-t_node	*ft_lstadd_back(t_list **lst, t_list *new)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*ulti;
 
 	ulti = ft_lstlast(*lst);
-	if (!ulti)
+	if (!ulti || !new)
+		return;
+	if (!*lst)
 	{
 		*lst = new;
 		return ;
 	}
+	ulti = *lst;
+	while (ulti->next)
+		ulti = ulti->next;
 	ulti->next = new;
 }
 /*int main(void)

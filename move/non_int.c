@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "../lib/libft.h"
+#include "../lib/push_swap.h"
 
 int	is_int(char *str)
 {

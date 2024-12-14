@@ -50,6 +50,7 @@ void	rrr(t_stack *stack_a, t_stack *stack_b);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
 void	*ft_memmove(void *dest, const void *src, size_t n);
 
+void	free_stack(t_stack *stack);
 int		is_int(char *str);
 void	int_error(void);
 

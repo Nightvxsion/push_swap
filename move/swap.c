@@ -5,20 +5,24 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: marcgar2 <marcgar2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/10 21:58:26 by marcgar2          #+#    #+#             */
-/*   Updated: 2024/12/10 21:58:26 by marcgar2         ###   ########.fr       */
+/*   Created: 2024/12/12 22:05:44 by marcgar2          #+#    #+#             */
+/*   Updated: 2024/12/12 22:05:44 by marcgar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../lib/push_swap.h"
-void	swap(int *stack)
+#include "../lib/libft.h"
+void	swap_2(t_stack *src)
 {
-	int	tmp;
+	t_node *first;
+	t_node *second;
 
-	if (stack)
-	{
-		tmp = stack[0];
-		stack[1] = stack[0];
-		stack[0] = tmp;
-	}
+	if (!src || !src->top || !(src->top->next)) // Si no existe ni la lista ni los 2 elementos de la lista
+		return;
+	first = src->top; // Obtencion del primer elemento de la lista
+	second = src->top->next; // Obtencion del segundo elemento de la lista
+
+	src->top = second;
+	first->next = second->next;
+	second->next = first;
 }

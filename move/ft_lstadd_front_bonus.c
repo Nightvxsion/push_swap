@@ -10,10 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include "../push_swap.h"
+#include "../lib/libft.h"
+#include "../lib/push_swap.h"
 
-t_node	*ft_lstadd_front(t_list **lst, t_list *new)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
 	new->next = *lst;
 	*lst = new;

@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./lib/push_swap.h"
-#include "./lib/libft.h"
+#include "../lib/push_swap.h"
+#include "../lib/libft.h"
 void	push(t_stack *src, t_stack *dst)
 {
 	t_list	*tmp;
@@ -19,7 +19,7 @@ void	push(t_stack *src, t_stack *dst)
 
 	if (!src || src->top == NULL)
 		return;
-	src->top = tmp; // Tmp apunta a la primera posicion
+	src->top = (t_node *)tmp; // Tmp apunta a la primera posicion
 	src->top = src->top->next; // El indice (top) al estar en la segunda posicion, pasa a la primera
 	src->size--; // Decrementa un valor ya que nos hemos pasado el valor guardado a la otra lista
 

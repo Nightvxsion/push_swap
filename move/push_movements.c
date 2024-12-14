@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap_movements.c                                   :+:      :+:    :+:   */
+/*   push_movements.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marcgar2 <marcgar2@student.42madrid.org    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/12 09:00:19 by marcgar2          #+#    #+#             */
-/*   Updated: 2024/12/12 09:04:20 by marcgar2         ###   ########.fr       */
+/*   Created: 2024/12/12 09:07:18 by marcgar2          #+#    #+#             */
+/*   Updated: 2024/12/12 09:09:33 by marcgar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./lib/push_swap.h"
-void	sa(t_stack *stack_a)
+#include "../lib/push_swap.h"
+void	pa(t_stack *src, t_stack *dst)
 {
-	swap_2(stack_a);
-	write(1, "sa\n", 3);
+	push(src, dst);
+	write(1, "pa\n", 3);
 }
-void	sb(t_stack *stack_b)
+void	pb(t_stack *src, t_stack *dst)
 {
-	swap_2(stack_b);
-	write(1, "sa\n", 3);
-}
-
-void	ss(t_stack *stack_a, t_stack *stack_b)
-{
-	swap_2(stack_a);
-	swap_2(stack_b);
-	write(1, "ss\n", 3);
+	push(src, dst);
+	write(1, "pb\n", 3);
 }

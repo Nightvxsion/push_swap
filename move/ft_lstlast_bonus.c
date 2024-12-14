@@ -1,24 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create_stack.c                                     :+:      :+:    :+:   */
+/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marcgar2 <marcgar2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/11 20:52:43 by marcgar2          #+#    #+#             */
-/*   Updated: 2024/12/11 20:52:43 by marcgar2         ###   ########.fr       */
+/*   Created: 2024/10/11 15:24:47 by marcgar2          #+#    #+#             */
+/*   Updated: 2024/10/11 15:52:10 by marcgar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./lib/push_swap.h"
-t_stack *create_stack(void)
-{
-	t_stack *new_stack;
+#include "../lib/libft.h"
 
-	new_stack = malloc(sizeof(new_stack)); // Alojar memoria en la lista
-	if (!new_stack)
+t_list	*ft_lstlast(t_list *lst)
+{
+	t_list	*temp;
+
+	temp = lst;
+	if (!lst)
 		return (NULL);
-	new_stack->top = NULL; // Init data de la lista en NULL (ya que es ptr-to-ptr)
-	new_stack->size = 0; // Init el tamaño (size) de la lista en 0 (ya que es int-to-int)
-	return (new_stack);
+	while (temp->next)
+		temp = temp->next;
+	return (temp);
 }
+
+/*int	main(void)
+{
+	t_list	*nodo1 = ft_lstnew("Nodo 1");
+	t_list	*nodo2 = ft_lstnew("Nodo 2");
+	t_list	*last;
+
+	nodo1->next = nodo2;
+	last = ft_lstlast(nodo1);
+	printf("Tamaño de la lista -> %s\n", (char *)last->content);
+	free(nodo1);
+	free(nodo2);
+	return (0);
+}*/
