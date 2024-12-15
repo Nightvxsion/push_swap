@@ -17,27 +17,24 @@ t_stack *create_stack(void)
 
 	new_stack = malloc(sizeof(new_stack)); // Alojar memoria en la lista
 	if (!new_stack)
-		return (NULL);
+		return (free(new_stack), NULL);
 	new_stack->top = NULL; // Init data de la lista en NULL (ya que es ptr-to-ptr)
 	new_stack->size = 0; // Init el tamaño (size) de la lista en 0 (ya que es int-to-int)
 	return (new_stack);
 }
 
-void	free_stack(t_stack *stack)
+void	free_stack(t_list **stack)
 {
 	t_list *now;
 	t_list *save;
-
-	if (!stack)
-		return;
 	
-	now = (t_list *)stack->top;
+	now = *stack; // Guardamos la posicion actual
 	while (now)
 	{
 		save = now; // Guardamos la posicion actual
-		now = now->next; // La siguiente posicion pasa a ser la actual
-		free(save->content);
+		now = now->next;
 		free(save);
 	}
-	stack->top = NULL;
+	free(stack);
+	printf("Memory freed\n");
 }

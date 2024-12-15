@@ -17,18 +17,17 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*ulti;
 
-	ulti = ft_lstlast(*lst);
-	if (!ulti || !new)
-		return;
-	if (!*lst)
+	if (*lst)
+	{
+		ulti = ft_lstlast(*lst);
+		ulti->next = new;
+		new->next = NULL;
+	}
+	else
 	{
 		*lst = new;
-		return ;
+		(*lst)->next = NULL;
 	}
-	ulti = *lst;
-	while (ulti->next)
-		ulti = ulti->next;
-	ulti->next = new;
 }
 /*int main(void)
 {

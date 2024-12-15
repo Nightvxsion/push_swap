@@ -29,69 +29,57 @@ void	print_stack(t_stack *stack, char *name)
 	write(1, "\n", 1);
 }
 
-int	main(void)
+int main(void)
 {
-	t_stack	stack_a;
-	t_stack	stack_b;
-	int		values_a[] = {1, 2, 3, 4, 5};
-	int		values_b[] = {6, 7, 8};
-	int		*current_value;
-	int		i;
+	t_stack stack_a;
+	t_stack stack_b;
 
-	// Inicializamos stack_a
+	// Inicializamos las pilas
 	stack_a.top = NULL;
-	stack_a.size = 5;
+	stack_a.size = 0;
+	stack_b.top = NULL;
+	stack_b.size = 0;
+
+	// Creamos algunos elementos para la pila A
+	int values_a[] = {1, 2, 3, 4, 5};
+	int i;
 	for (i = 0; i < 5; i++)
 	{
-		current_value = malloc(sizeof(int));
+		int *current_value = malloc(sizeof(int));
 		if (!current_value)
 		{
+			free_stack((t_list **)&stack_a);
 			write(2, "Error: malloc failed\n", 22);
-			free_stack(&stack_a);
 			exit(1);
 		}
 		*current_value = values_a[i];
-		ft_lstadd_back((t_list **)&(stack_a.top), ft_lstnew(&values_a[i]));
-		
+		ft_lstadd_back((t_list **)&(stack_a.top), ft_lstnew(current_value));
 	}
 
-	// Inicializamos stack_b
-	stack_b.top = NULL;
-	stack_b.size = 3;
-	for (i = 0; i < 3; i++)
-	{
-		current_value = malloc(sizeof(int));
-		if (!current_value)
-		{
-			write(2, "Error: malloc failed\n", 22);
-			free_stack(&stack_a);
-			free_stack(&stack_b);
-			exit(1);
-		}
-		*current_value = values_b[i];
-		ft_lstadd_back((t_list **)&(stack_a.top), ft_lstnew(&values_a[i]));
-		
-	}
+	// Imprimimos la pila A inicial
+	print_stack(&stack_a, "A");
 
-	// Imprimimos el estado inicial
-	write(1, "Estado inicial:\n", 16);
-	print_stack(&stack_a, "Stack A");
-	print_stack(&stack_b, "Stack B");
+	// Hacemos algunos movimientos
+	// push A -> B
+	push(&stack_a, &stack_b);
+	print_stack(&stack_a, "A");
+	print_stack(&stack_b, "B");
 
-	// Aplicamos movimientos
-	write(1, "\nAplicando movimientos...\n", 26);
-	ra(&stack_a);
-	rb(&stack_b);
-	rr(&stack_a, &stack_b);
-	reverse_rot(&stack_a);
+	// rotate A
+	rotate(&stack_a);
+	print_stack(&stack_a, "A");
+
+	// reverse rotate B
 	reverse_rot(&stack_b);
+	print_stack(&stack_b, "B");
 
-	// Imprimimos el estado final
-	write(1, "\nEstado final:\n", 15);
-	print_stack(&stack_a, "Stack A");
-	print_stack(&stack_b, "Stack B");
+	// swap A
+	swap_2(&stack_a);
+	print_stack(&stack_a, "A");
 
-	free_stack(&stack_a);
-	free_stack(&stack_b);
-	return (0);
+	// Liberamos la memoria
+	free_stack((t_list **)&stack_a);
+	free_stack((t_list **)&stack_b);
+
+	return 0;
 }
