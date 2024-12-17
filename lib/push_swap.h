@@ -6,7 +6,7 @@
 /*   By: marcgar2 <marcgar2@student.42madrid.org    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 22:17:17 by marcgar2          #+#    #+#             */
-/*   Updated: 2024/12/13 09:55:19 by marcgar2         ###   ########.fr       */
+/*   Updated: 2024/12/17 08:12:29 by marcgar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	rrr(t_stack *stack_a, t_stack *stack_b);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
 void	*ft_memmove(void *dest, const void *src, size_t n);
 
-void	free_stack(t_list **stack);
+void	free_stack(t_stack *stack);
 int		is_int(char *str);
 void	int_error(void);
 

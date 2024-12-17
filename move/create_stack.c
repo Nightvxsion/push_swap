@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   create_stack.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marcgar2 <marcgar2@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: marcgar2 <marcgar2@student.42madrid.org    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 20:52:43 by marcgar2          #+#    #+#             */
-/*   Updated: 2024/12/11 20:52:43 by marcgar2         ###   ########.fr       */
+/*   Updated: 2024/12/17 08:13:24 by marcgar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,25 @@ t_stack *create_stack(void)
 	return (new_stack);
 }
 
-void	free_stack(t_list **stack)
+void	free_stack(t_stack *stack)
 {
 	t_list *now;
-	t_list *save;
+	t_node *save;
 	
-	now = *stack; // Guardamos la posicion actual
+	if (!stack || !stack->top)
+		return;
+	
+	
+	now = (t_stack *)stack->top; // Guardamos la posicion actual
 	while (now)
 	{
-		save = now; // Guardamos la posicion actual
-		now = now->next;
-		free(save);
+		save = now->next; // Guardamos la posicion actual
+		if (now->content)
+			free(now->content);
+		free(now);
+		now = save;
 	}
-	free(stack);
-	printf("Memory freed\n");
+	stack->top = NULL;
+	stack->size = 0;
+	printf("Memory freed!\n");
 }

@@ -6,7 +6,7 @@
 /*   By: marcgar2 <marcgar2@student.42madrid.org    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 22:21:09 by marcgar2          #+#    #+#             */
-/*   Updated: 2024/12/13 10:00:45 by marcgar2         ###   ########.fr       */
+/*   Updated: 2024/12/17 08:14:16 by marcgar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,23 @@ void	print_stack(t_stack *stack, char *name)
 {
 	t_list	*current;
 	
+	if (!stack || !stack->top)
+	{
+		write(1, name, ft_strlen(name));
+		write(1, "Empty\n", 6);
+		return;
+	}
+	
 	write(1, name, ft_strlen(name));
 	write(1, ": ", 2);
 	current = (t_list *)stack->top;
 	while (current)
 	{
-		ft_putnbr_fd(*(int *)current->content, 1);
-		write(1, " ", 1);
+		if (current->content)
+			ft_putnbr_fd(*(int *)current->content, 1);
+		else
+			write(1, "(NULL)", 6);
+		write (1, " ", 1);
 		current = current->next;
 	}
 	write(1, "\n", 1);
@@ -42,18 +52,24 @@ int main(void)
 
 	// Creamos algunos elementos para la pila A
 	int values_a[] = {1, 2, 3, 4, 5};
+	int values_b[] = {6, 7, 8};
 	int i;
 	for (i = 0; i < 5; i++)
 	{
 		int *current_value = malloc(sizeof(int));
 		if (!current_value)
-		{
-			free_stack((t_list **)&stack_a);
-			write(2, "Error: malloc failed\n", 22);
-			exit(1);
-		}
+			return (1);
 		*current_value = values_a[i];
 		ft_lstadd_back((t_list **)&(stack_a.top), ft_lstnew(current_value));
+	}
+
+	for (i = 0; i < 3; i++)
+	{
+		int *current_value = malloc(sizeof(int));
+		if (!current_value)
+			return (1);
+		*current_value = values_b[i];
+		ft_lstadd_back((t_list **)&(stack_b.top), ft_lstnew(current_value));
 	}
 
 	// Imprimimos la pila A inicial
