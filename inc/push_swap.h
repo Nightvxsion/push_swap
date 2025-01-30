@@ -6,7 +6,7 @@
 /*   By: marcgar2 <marcgar2@student.42madrid.org    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 17:29:32 by marcgar2          #+#    #+#             */
-/*   Updated: 2025/01/17 09:54:10 by marcgar2         ###   ########.fr       */
+/*   Updated: 2025/01/30 08:50:43 by marcgar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ bool			is_sorted(t_stack_node *stack);
 t_stack_node	*find_min(t_stack_node *stack);
 t_stack_node	*find_max(t_stack_node *stack);
 char			**split(char *s, char c);
+void			print_stack(t_stack_node *stack, char *name);
 
 //ERRORS
 int				err_syntax(char	*str);

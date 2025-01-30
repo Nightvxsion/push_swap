@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_stacks.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marcgar2 <marcgar2@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: marcgar2 <marcgar2@student.42madrid.org    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 18:55:16 by marcgar2          #+#    #+#             */
-/*   Updated: 2025/01/20 18:55:16 by marcgar2         ###   ########.fr       */
+/*   Updated: 2025/01/30 08:55:43 by marcgar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void	sort_stacks(t_stack_node **a, t_stack_node **b)
 	while(*b)
 	{
 		init_node_b(*a, *b); //Inicializamos todos los nodos
-		move_b_to_a(a, b); //Pasamos de 'b' a 'a' hasta que hayan 3 elementos sin ordenar
+		move_b_to_a(a, b); //Pasamos de 'b' a 'a' hasta que hayan 3 elementos sin ordenar 
 	}
 	current_index(*a); //Actualizamos la posicion
 	min_to_the_top(a); //Aseguramos el nodo minimo arriba del todo
