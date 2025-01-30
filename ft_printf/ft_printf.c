@@ -12,6 +12,7 @@
 
 #include "ft_printf.h"
 #include "libft.h"
+
 int	ft_formats(va_list elem, const char format)
 {
 	int	format_espec;

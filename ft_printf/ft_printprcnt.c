@@ -12,6 +12,7 @@
 
 #include "ft_printf.h"
 #include "libft.h"
+
 int	ft_printprcnt(void)
 {
 	write(1, "%", 1);

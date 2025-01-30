@@ -14,20 +14,20 @@
 
 static void	target_b(t_stack_node *a, t_stack_node *b)
 {
-	t_stack_node	*real_a; //Aqui guardamos el puntero directo al nodo 'a' e iteramos apartir de ahi
-	t_stack_node	*target_a; //Guardamos el puntero al nodo 'a' (intercambiar, target)
+	t_stack_node	*real_a;
+	t_stack_node	*target_a;
 	long			best_match;
 
-	while (b) //Siempre que tengamos nodos en 'b'
+	while (b)
 	{
-		best_match = LONG_MAX; //Asignamos el numnero mas grande/maximo para tener de base un numero maximo
+		best_match = LONG_MAX;
 		real_a = a;
 		while (real_a)
 		{
-			if(real_a->nbr > b->nbr && real_a->nbr < best_match) //Si el nodo 'a' actual es menor que los nodos de b && el nodo a mayor que mas maximo
+			if (real_a->nbr > b->nbr && real_a->nbr < best_match)
 			{
-				best_match = real_a->nbr; //Si es asi, actualizamos ese nodo como el minimo de los maximos
-				target_a = real_a; // Entonces el nodo actual pasa a ser el nuevo target simultaneamente
+				best_match = real_a->nbr;
+				target_a = real_a;
 			}
 			real_a = real_a->next;
 		}
@@ -39,7 +39,7 @@ static void	target_b(t_stack_node *a, t_stack_node *b)
 	}
 }
 
-void	init_node_b(t_stack_node *a, t_stack_node* b)
+void	init_node_b(t_stack_node *a, t_stack_node *b)
 {
 	current_index(a);
 	current_index(b);

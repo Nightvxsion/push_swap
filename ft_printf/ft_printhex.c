@@ -12,6 +12,7 @@
 
 #include "ft_printf.h"
 #include "libft.h"
+
 int	ft_hexalen(unsigned int nbr)
 {
 	int	i;

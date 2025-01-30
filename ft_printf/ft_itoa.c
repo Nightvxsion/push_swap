@@ -12,6 +12,7 @@
 
 #include "ft_printf.h"
 #include "libft.h"
+
 static int	digit_count(int n)
 {
 	int	i;

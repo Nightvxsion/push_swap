@@ -19,11 +19,11 @@ static void	reverse_rotate(t_stack_node **stack)
 	if (!*stack || !(*stack)->next)
 		return ;
 	last = find_last_item(*stack);
-	last->prev->next = NULL; //Asignamos el atributo 'next' y lo igualamos a NULL para que se convierta en el ultimo nodo
-	last->next = *stack; //Asignamos el atributo 'next' en la misma posicion para hacer el nuevo top
-	last->prev = NULL; //Lo desenganchamos antes de hacer nada
-	*stack = last; //Apuntamos hacia la posicion inicial desde el ultimo nodo asegurado
-	last->next->prev = last; //Actualizamos la posicion del ultimo nodo
+	last->prev->next = NULL;
+	last->next = *stack;
+	last->prev = NULL;
+	*stack = last;
+	last->next->prev = last;
 }
 
 void	rra(t_stack_node **a, bool print)

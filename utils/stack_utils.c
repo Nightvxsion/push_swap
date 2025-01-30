@@ -17,7 +17,7 @@ t_stack_node	*find_last_item(t_stack_node *stack)
 	if (!stack)
 		return (NULL);
 	while (stack->next)
-		stack = stack->next; //Loopea hasta encontrar el ultimo nodo de la lista
+		stack = stack->next;
 	return (stack);
 }
 
@@ -42,14 +42,14 @@ bool	is_sorted(t_stack_node *stack)
 		return (1);
 	while (stack->next)
 	{
-		if (stack->nbr > stack->next->nbr) //Indica si esta fuera de nuestro rango de orden
+		if (stack->nbr > stack->next->nbr)
 			return (false);
 		stack = stack->next;
 	}
 	return (true);
 }
 
-t_stack_node	*find_min(t_stack_node *stack) //Consigue el numero mas pequeño de todos los dados
+t_stack_node	*find_min(t_stack_node *stack)
 {
 	long			min;
 	t_stack_node	*abs_min;
@@ -59,17 +59,17 @@ t_stack_node	*find_min(t_stack_node *stack) //Consigue el numero mas pequeño de
 	min = LONG_MAX;
 	while (stack)
 	{
-		if (stack->nbr < min) //Comprueba si el numero dado es menor que todos los que tenemos con nbr
+		if (stack->nbr < min)
 		{
-			min = stack->nbr; //Actualiza el numero como numero mas pequeño
-			abs_min = stack; //Y lo enlaza con un puntero al numero mas pequeño
+			min = stack->nbr;
+			abs_min = stack;
 		}
 		stack = stack->next;
 	}
 	return (abs_min);
 }
 
-t_stack_node	*find_max(t_stack_node *stack) //Consigue el numero mas grande de todos los dados
+t_stack_node	*find_max(t_stack_node *stack)
 {
 	long			max;
 	t_stack_node	*abs_max;
@@ -79,10 +79,10 @@ t_stack_node	*find_max(t_stack_node *stack) //Consigue el numero mas grande de t
 	max = LONG_MIN;
 	while (stack)
 	{
-		if (stack->nbr > max) //Comprueba si el numero dado es mayor que todos los que tenemos con nbr
+		if (stack->nbr > max)
 		{
-			max = stack->nbr; //Actualiza el numero como numero mas grande
-			abs_max = stack; //Y lo enlaza con un puntero al numero mas grande
+			max = stack->nbr;
+			abs_max = stack;
 		}
 		stack = stack->next;
 	}

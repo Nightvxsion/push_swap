@@ -12,6 +12,7 @@
 
 #include "ft_printf.h"
 #include "libft.h"
+
 void	ft_putstr(char *str)
 {
 	int	i;
@@ -60,4 +61,3 @@ int	ft_printnbr(int a)
 	free(str);
 	return (leng);
 }
-

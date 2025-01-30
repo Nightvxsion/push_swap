@@ -21,14 +21,14 @@
 
 typedef struct s_stack_node
 {
-	int					nbr; //Numeros a ordenar
-	int					index; //Posicion en el stack
-	int					push_cost; //Comandos en total
-	bool				average; //se usa para calcular "push_cost" TURK ALGORITHM
-	bool				cheap; //El nodo mas barato en operaciones TURK ALGORITHM
-	struct s_stack_node	*target_node; //El objetivo del nodo del otro stack
-	struct s_stack_node	*next; //Puntero al siguiente nodo
-	struct s_stack_node	*prev; //Puntero al nodo previo
+	int					nbr;
+	int					index;
+	int					push_cost;
+	bool				average;
+	bool				cheap;
+	struct s_stack_node	*target_node;
+	struct s_stack_node	*next;
+	struct s_stack_node	*prev;
 }	t_stack_node;
 
 //MOVES
@@ -67,7 +67,7 @@ void			ready_to_push(t_stack_node **s, t_stack_node *top, char name);
 void			current_index(t_stack_node *stack);
 void			cheapest(t_stack_node *list);
 void			init_node_a(t_stack_node *a, t_stack_node *b);
-void			init_node_b(t_stack_node *a, t_stack_node* b);
+void			init_node_b(t_stack_node *a, t_stack_node *b);
 
 //ALGORITHM (TURK)
 void			sort_three_elem(t_stack_node **a);

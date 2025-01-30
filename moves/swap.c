@@ -16,13 +16,13 @@ static void	swap(t_stack_node **top)
 {
 	if (!*top || !(*top)->next)
 		return ;
-	*top = (*top)->next; //Actualiza a la siguiente posicion
-	(*top)->prev->prev = *top; //Actualiza 2 posiciones atras para apuntar a la posicion a swapear
-	(*top)->prev->next = (*top)->next; //Actualiza a la siguiente posicion despues de la anterior y lo reemplaza por la hay que swapear
-	if ((*top)->next) //Si hay un nodo a swapear despues de la posicion actual
-		(*top)->next->prev = (*top)->prev; //Si es asi, lo ponemos a apunar el nodo prev al de atras del top
-	(*top)->next = (*top)->prev; //Apuntamos al nodo prev y a su vez al nodo siguiente 
-	(*top)->prev = NULL; //Ponemos el nodo prev en NULL por los leaks
+	*top = (*top)->next;
+	(*top)->prev->prev = *top;
+	(*top)->prev->next = (*top)->next;
+	if ((*top)->next)
+		(*top)->next->prev = (*top)->prev;
+	(*top)->next = (*top)->prev;
+	(*top)->prev = NULL;
 }
 
 void	sa(t_stack_node **stack, bool print)

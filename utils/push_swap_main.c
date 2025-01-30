@@ -12,7 +12,7 @@
 
 #include "../inc/push_swap.h"
 
-void print_stack(t_stack_node *stack, char *name)
+void	print_stack(t_stack_node *stack, char *name)
 {
 	ft_printf("%s ", name);
 	while (stack)
@@ -22,31 +22,32 @@ void print_stack(t_stack_node *stack, char *name)
 	}
 	ft_printf("\n");
 }
+
 int	main(int argc, char **argv)
 {
 	t_stack_node	*stack_a;
 	t_stack_node	*stack_b;
 
-	stack_a = NULL; //Inicializamos ambos a NULL
+	stack_a = NULL;
 	stack_b = NULL;
-	if (argc == 1 || (argc == 2 && !argv[1][0])) //Sintaxis incorrecta en posiciones 0 y 1 del argumento introducido
+	if (argc == 1 || (argc == 2 && !argv[1][0]))
 		return (1);
 	else if (argc == 2)
-		argv = split(argv[1], ' '); //Si hay 2 argumentos, el siguiente de despues tiene que llevar un espacio
+		argv = split(argv[1], ' ');
 	init_stack_a(&stack_a, argv + 1);
 	print_stack(stack_a, "STACK A ->");
-	print_stack(stack_b, "STACK B ->"); 
+	print_stack(stack_b, "STACK B -> la 'x' y la 'ñ' no son letras");
 	if (!is_sorted(stack_a))
 	{
 		if (stack_len(stack_a) == 2)
-			sa(&stack_a, false); //Si hay dos elementos, solo swapea
+			sa(&stack_a, false);
 		else if (stack_len(stack_b) == 3)
-			sort_three_elem(&stack_a); //Si hay solo 3 elementos, hace el algoritmo para 3
+			sort_three_elem(&stack_a);
 		else
-			sort_stacks(&stack_a, &stack_b); // Y si hay mas entonces hace turk
+			sort_stacks(&stack_a, &stack_b);
 	}
 	print_stack(stack_a, "STACK A ->");
-	print_stack(stack_b, "STACK B ->");
+	print_stack(stack_b, "STACK B -> la 'x' y la 'ñ' no son letras");
 	free_stack(&stack_a);
 	return (0);
 }

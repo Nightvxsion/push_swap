@@ -12,47 +12,50 @@
 
 #include "../inc/push_swap.h"
 
-static void	rotate_both_stacks(t_stack_node **a, t_stack_node **b, t_stack_node *cheap)
+static void	rotate_both_stacks(t_stack_node **a, t_stack_node **b,
+								t_stack_node *cheap)
 {
-	while (*b != cheap->target_node && *a != cheap) //Mientras que b no apunte al mas barato de a && a no sea el barato
-		rr(a, b, false); //Rotar ambos stacks hacia abajo
-	current_index(*a); //Actualizar posiciones
+	while (*b != cheap->target_node && *a != cheap)
+		rr(a, b, false);
+	current_index(*a);
 	current_index(*b);
 }
 
-static void	rev_rotate_both_stacks(t_stack_node **a, t_stack_node **b, t_stack_node *cheap_again)
+static void	rev_rotate_both_stacks(t_stack_node **a, t_stack_node **b,
+									t_stack_node *cheap_again)
 {
-	while (*b != cheap_again->target_node && *a != cheap_again) //Mientras que b no apunte al mas barato de a && a no sea el barato
-		rrr(a, b, false); //Rotar ambos stacks hacia arriba
-	current_index(*a); //Actualizar posiciones
+	while (*b != cheap_again->target_node && *a != cheap_again)
+		rrr(a, b, false);
+	current_index(*a);
 	current_index(*b);
 }
 
 static void	move_a_to_b(t_stack_node **a, t_stack_node **b)
 {
-	t_stack_node	*cheapest_node; //Puntero directo al nodo "barato"
+	t_stack_node	*cheapest_node;
 
 	cheapest_node = get_cheap_item(*a);
-	if (cheapest_node->average && cheapest_node->target_node->average) //Si a y b estan por encima de la media
+	if (cheapest_node->average && cheapest_node->target_node->average)
 		rotate_both_stacks(a, b, cheapest_node);
-	else if (!(cheapest_node->average) && !(cheapest_node->target_node->average)) //Si no lo estan
+	else if (!(cheapest_node->average)
+		&& !(cheapest_node->target_node->average))
 		rev_rotate_both_stacks(a, b, cheapest_node);
-	ready_to_push(a, cheapest_node, 'a'); //Aseguramos a
-	ready_to_push(b, cheapest_node->target_node, 'b'); //Apuntamos y luego pusheamos de a a 'b';
+	ready_to_push(a, cheapest_node, 'a');
+	ready_to_push(b, cheapest_node->target_node, 'b');
 	pb(b, a, false);
 }
 
 static void	move_b_to_a(t_stack_node **a, t_stack_node **b)
 {
-	ready_to_push(a, (*b)->target_node, 'a'); //Aseguramos que 'b' sea objetivo de 'a'
-	pa(a, b, false); //Pusheamos
+	ready_to_push(a, (*b)->target_node, 'a');
+	pa(a, b, false);
 }
 
-static void min_to_the_top(t_stack_node **a)
+static void	min_to_the_top(t_stack_node **a)
 {
-	while ((*a)->nbr != find_min(*a)->nbr) //Mientras que el numero mas pequeño no este arriba
+	while ((*a)->nbr != find_min(*a)->nbr)
 	{
-		if(find_min(*a)->average) //Si el numero mas pequeño esta por encima de la media
+		if (find_min(*a)->average)
 			ra(a, false);
 		else
 			rra(a, false);
@@ -64,21 +67,21 @@ void	sort_stacks(t_stack_node **a, t_stack_node **b)
 	int	leng_a;
 
 	leng_a = stack_len(*a);
-	if (leng_a-- > 3 && !is_sorted(*a)) //Si a tiene mas de 3 elementos y no esta ordenado
+	if (leng_a-- > 3 && !is_sorted(*a))
 		pb(b, a, false);
 	if (leng_a-- > 3 && !is_sorted(*a))
 		pb(b, a, false);
-	while (leng_a-- > 3 && !is_sorted(*a)) //Si aun asi sigue sin estar ordenado
+	while (leng_a-- > 3 && !is_sorted(*a))
 	{
-		init_node_a(*a, *b); //Inicializamos todos los nodos
-		move_a_to_b(a, b); //Los movemos hacia 'b' hasta que hayan 3 sin ordenar
+		init_node_a(*a, *b);
+		move_a_to_b(a, b);
 	}
 	sort_three_elem(a);
-	while(*b)
+	while (*b)
 	{
-		init_node_b(*a, *b); //Inicializamos todos los nodos
-		move_b_to_a(a, b); //Pasamos de 'b' a 'a' hasta que hayan 3 elementos sin ordenar 
+		init_node_b(*a, *b);
+		move_b_to_a(a, b);
 	}
-	current_index(*a); //Actualizamos la posicion
-	min_to_the_top(a); //Aseguramos el nodo minimo arriba del todo
+	current_index(*a);
+	min_to_the_top(a);
 }
