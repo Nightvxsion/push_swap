@@ -35,8 +35,8 @@ int	main(int argc, char **argv)
 	else if (argc == 2)
 		argv = split(argv[1], ' ');
 	init_stack_a(&stack_a, argv + 1);
-	print_stack(stack_a, "STACK A ->");
-	print_stack(stack_b, "STACK B -> la 'x' y la 'ñ' no son letras");
+	//print_stack(stack_a, "STACK A ->");
+	//print_stack(stack_b, "STACK B ->");
 	if (!is_sorted(stack_a))
 	{
 		if (stack_len(stack_a) == 2)
@@ -46,8 +46,8 @@ int	main(int argc, char **argv)
 		else
 			sort_stacks(&stack_a, &stack_b);
 	}
-	print_stack(stack_a, "STACK A ->");
-	print_stack(stack_b, "STACK B -> la 'x' y la 'ñ' no son letras");
+	//print_stack(stack_a, "STACK A ->");
+	//print_stack(stack_b, "STACK B ->");
 	free_stack(&stack_a);
 	return (0);
 }

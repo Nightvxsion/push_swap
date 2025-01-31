@@ -12,8 +12,7 @@
 
 #include "../inc/push_swap.h"
 
-static void	rotate_both_stacks(t_stack_node **a, t_stack_node **b,
-								t_stack_node *cheap)
+static void	r_both(t_stack_node **a, t_stack_node **b, t_stack_node *cheap)
 {
 	while (*b != cheap->target_node && *a != cheap)
 		rr(a, b, false);
@@ -21,8 +20,7 @@ static void	rotate_both_stacks(t_stack_node **a, t_stack_node **b,
 	current_index(*b);
 }
 
-static void	rev_rotate_both_stacks(t_stack_node **a, t_stack_node **b,
-									t_stack_node *cheap_again)
+static void	rv_both(t_stack_node **a, t_stack_node **b, t_stack_node *cheap_again)
 {
 	while (*b != cheap_again->target_node && *a != cheap_again)
 		rrr(a, b, false);
@@ -36,10 +34,10 @@ static void	move_a_to_b(t_stack_node **a, t_stack_node **b)
 
 	cheapest_node = get_cheap_item(*a);
 	if (cheapest_node->average && cheapest_node->target_node->average)
-		rotate_both_stacks(a, b, cheapest_node);
+		r_both(a, b, cheapest_node);
 	else if (!(cheapest_node->average)
 		&& !(cheapest_node->target_node->average))
-		rev_rotate_both_stacks(a, b, cheapest_node);
+		rv_both(a, b, cheapest_node);
 	ready_to_push(a, cheapest_node, 'a');
 	ready_to_push(b, cheapest_node->target_node, 'b');
 	pb(b, a, false);
