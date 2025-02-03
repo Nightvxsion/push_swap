@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   split.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marcgar2 <marcgar2@student.42madrid.org    +#+  +:+       +#+        */
+/*   By: marcgar2 <marcgar2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 18:50:04 by marcgar2          #+#    #+#             */
-/*   Updated: 2025/01/23 09:02:33 by marcgar2         ###   ########.fr       */
+/*   Updated: 2025/02/03 22:55:37 by marcgar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,10 +71,8 @@ char	**split(char *s, char c)
 	dest = malloc(sizeof(char *) * (size_t)(word_count + 2));
 	if (!dest)
 		return (NULL);
-	while (word_count-- >= 0)
-	{
-		if (i == 0)
-		{
+	while (word_count-- >= 0) {
+		if (i == 0) {
 			dest[i] = malloc(sizeof(char));
 			if (!dest[i])
 				return (NULL);

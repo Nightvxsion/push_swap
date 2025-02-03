@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_main.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marcgar2 <marcgar2@student.42madrid.org    +#+  +:+       +#+        */
+/*   By: marcgar2 <marcgar2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 18:46:16 by marcgar2          #+#    #+#             */
-/*   Updated: 2025/01/30 08:50:27 by marcgar2         ###   ########.fr       */
+/*   Updated: 2025/02/03 22:54:15 by marcgar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,18 @@ void	print_stack(t_stack_node *stack, char *name)
 	ft_printf("\n");
 }
 
+void	free_split_leak(char **split)
+{
+	int	i;
+
+	i = 0;
+	while(split[i])
+	{
+		free(split[i]);
+		i++;
+	}
+	free(split);
+}
 int	main(int argc, char **argv)
 {
 	t_stack_node	*stack_a;
@@ -35,8 +47,6 @@ int	main(int argc, char **argv)
 	else if (argc == 2)
 		argv = split(argv[1], ' ');
 	init_stack_a(&stack_a, argv + 1);
-	//print_stack(stack_a, "STACK A ->");
-	//print_stack(stack_b, "STACK B ->");
 	if (!is_sorted(stack_a))
 	{
 		if (stack_len(stack_a) == 2)
@@ -46,8 +56,7 @@ int	main(int argc, char **argv)
 		else
 			sort_stacks(&stack_a, &stack_b);
 	}
-	//print_stack(stack_a, "STACK A ->");
-	//print_stack(stack_b, "STACK B ->");
 	free_stack(&stack_a);
+	free_split_leak(argv);
 	return (0);
 }

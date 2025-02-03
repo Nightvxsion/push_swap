@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marcgar2 <marcgar2@student.42madrid.org    +#+  +:+       +#+        */
+/*   By: marcgar2 <marcgar2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 17:29:32 by marcgar2          #+#    #+#             */
-/*   Updated: 2025/01/30 08:50:43 by marcgar2         ###   ########.fr       */
+/*   Updated: 2025/02/03 22:49:19 by marcgar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ t_stack_node	*find_min(t_stack_node *stack);
 t_stack_node	*find_max(t_stack_node *stack);
 char			**split(char *s, char c);
 void			print_stack(t_stack_node *stack, char *name);
+void			free_split_leak(char **split);
 
 //ERRORS
 int				err_syntax(char	*str);
