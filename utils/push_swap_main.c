@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_main.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marcgar2 <marcgar2@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: marcgar2 <marcgar2@student.42madrid.org    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 18:46:16 by marcgar2          #+#    #+#             */
-/*   Updated: 2025/02/03 22:54:15 by marcgar2         ###   ########.fr       */
+/*   Updated: 2025/02/04 08:16:30 by marcgar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,8 @@ int	main(int argc, char **argv)
 			sort_three_elem(&stack_a);
 		else
 			sort_stacks(&stack_a, &stack_b);
+		free_split_leak(argv);
 	}
 	free_stack(&stack_a);
-	free_split_leak(argv);
 	return (0);
 }

@@ -6,13 +6,13 @@
 #    By: marcgar2 <marcgar2@student.42madrid.org    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/20 19:34:15 by marcgar2          #+#    #+#              #
-#    Updated: 2025/01/23 08:54:35 by marcgar2         ###   ########.fr        #
+#    Updated: 2025/02/04 08:17:46 by marcgar2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 CC = cc
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -g -Wall -Werror -Wextra  -fsanitize=address
 RM = rm -f
 
 PRINTF_DIR = ./ft_printf
