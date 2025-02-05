@@ -12,7 +12,7 @@
 
 NAME = push_swap
 CC = cc
-CFLAGS = -g -Wall -Werror -Wextra  -fsanitize=address
+CFLAGS = -Wall -Werror -Wextra
 RM = rm -f
 
 PRINTF_DIR = ./ft_printf
