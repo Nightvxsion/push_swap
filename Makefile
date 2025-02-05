@@ -72,7 +72,8 @@ MOVES_SRC = $(MOVES_DIR)/push.c \
 			$(MOVES_DIR)/rv_rotate.c \
 			$(MOVES_DIR)/sort_stacks.c \
 			$(MOVES_DIR)/sort_three_elem.c \
-			$(MOVES_DIR)/swap.c 
+			$(MOVES_DIR)/swap.c \
+			$(MOVES_DIR)/moving_b_a.c
 
 UTILS_SRC = $(UTILS_DIR)/errors_handling.c \
 			$(UTILS_DIR)/init_a_b.c \

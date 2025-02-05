@@ -19,9 +19,9 @@ static long	ft_atol(const char *a) //Convierte de un ascii a un long
 
 	output = 0;
 	flag = 1;
-	while (*a == ' ' || *a == '\t' || *a == '\n' ||
-		*a == '\r' || *a == '\f' || *a == '\v')
-			a++;
+	while (*a == ' ' || *a == '\t' || *a == '\n'
+		|| *a == '\r' || *a == '\f' || *a == '\v')
+		a++;
 	if (*a == '-' || *a == '+')
 	{
 		if (*a == '-')

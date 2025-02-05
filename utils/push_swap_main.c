@@ -28,35 +28,48 @@ void	free_split_leak(char **split)
 	int	i;
 
 	i = 0;
-	while(split[i])
+	while (split[i])
 	{
 		free(split[i]);
 		i++;
 	}
 	free(split);
 }
+
+static void	sorting(t_stack_node **stack_a, t_stack_node **stack_b)
+{
+	int	len;
+
+	len = stack_len(*stack_a);
+	if (len == 2)
+		sa(stack_a, false);
+	else if (len == 3)
+		sort_three_elem(stack_a);
+	else
+		sort_stacks(stack_a, stack_b);
+}
+
 int	main(int argc, char **argv)
 {
 	t_stack_node	*stack_a;
 	t_stack_node	*stack_b;
+	bool			is_split;
 
 	stack_a = NULL;
 	stack_b = NULL;
+	is_split = 0;
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
 		return (1);
 	else if (argc == 2)
+	{
 		argv = split(argv[1], ' ');
+		is_split = 1;
+	}
 	init_stack_a(&stack_a, argv + 1);
 	if (!is_sorted(stack_a))
-	{
-		if (stack_len(stack_a) == 2)
-			sa(&stack_a, false);
-		else if (stack_len(stack_b) == 3)
-			sort_three_elem(&stack_a);
-		else
-			sort_stacks(&stack_a, &stack_b);
-	}
+		sorting(&stack_a, &stack_b);
 	free_stack(&stack_a);
-	free_split_leak(argv);
+	if (is_split)
+		free_split_leak(argv);
 	return (0);
 }

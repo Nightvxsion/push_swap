@@ -20,7 +20,8 @@ static void	r_both(t_stack_node **a, t_stack_node **b, t_stack_node *cheap)
 	current_index(*b);
 }
 
-static void	rv_both(t_stack_node **a, t_stack_node **b, t_stack_node *cheap_again)
+static void	rv_both(t_stack_node **a, t_stack_node **b,
+					t_stack_node *cheap_again)
 {
 	while (*b != cheap_again->target_node && *a != cheap_again)
 		rrr(a, b, false);
@@ -41,12 +42,6 @@ static void	move_a_to_b(t_stack_node **a, t_stack_node **b)
 	ready_to_push(a, cheapest_node, 'a');
 	ready_to_push(b, cheapest_node->target_node, 'b');
 	pb(b, a, false);
-}
-
-static void	move_b_to_a(t_stack_node **a, t_stack_node **b)
-{
-	ready_to_push(a, (*b)->target_node, 'a');
-	pa(a, b, false);
 }
 
 static void	min_to_the_top(t_stack_node **a)

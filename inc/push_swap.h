@@ -54,6 +54,7 @@ t_stack_node	*find_max(t_stack_node *stack);
 char			**split(char *s, char c);
 void			print_stack(t_stack_node *stack, char *name);
 void			free_split_leak(char **split);
+void			move_b_to_a(t_stack_node **a, t_stack_node **b);
 
 //ERRORS
 int				err_syntax(char	*str);
